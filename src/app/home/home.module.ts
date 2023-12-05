@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { ImageSelectorComponent } from '../image-selector/image-selector.component';
+import { ResultsComponent } from '../results/results.component';
 
 
 @NgModule({
@@ -14,6 +16,10 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [
+    HomePage, 
+    ImageSelectorComponent, 
+    ResultsComponent
+  ]
 })
-export class HomePageModule {}
+export class HomePageModule { }

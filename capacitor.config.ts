@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'co.edu.iudigital.agro',
   appName: 'agro-app',
   webDir: 'www',
   server: {

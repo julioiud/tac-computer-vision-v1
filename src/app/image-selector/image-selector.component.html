@@ -1,0 +1,6 @@
+<ion-button (click)="takePicture()">Seleccionar Imagen</ion-button>
+<ion-img [src]="selectedImage" *ngIf="selectedImage"></ion-img>
+<div *ngIf="selectedImage">
+    <ion-button (click)="uploadImagen()">Analizar...</ion-button>
+    <app-results *ngIf="isLoaded" [result]="result"></app-results>
+</div>
