@@ -27,7 +27,8 @@ export class ImageSelectorComponent  implements OnInit {
   
   async takePicture(){
     
-
+    this.result = ''
+    
     this.selectedImage = ''
 
     const image = await Camera.getPhoto({
@@ -52,6 +53,7 @@ export class ImageSelectorComponent  implements OnInit {
 
   async uploadImagen() {
     
+    
     const loading = await this.loadingCtrl.create({
       message: 'Analizando...'
     });
@@ -62,21 +64,23 @@ export class ImageSelectorComponent  implements OnInit {
     if (this.image) {
 
       const { data } = this.image
+
+      console.log(this.selectedImage)
       
       this.imageDetectionService.detectImage(this.selectedImage)
      .subscribe({
-        next: async (response: any) => {
+        next: (response: any) => {
           
           console.log(response)
           
           this.result = JSON.stringify(
             response
           )
-          if(response ) {
-            const predicts = await response.predictions
-            const cantidad = await predicts.length;
+          /*if(response ) {
+            const predicts = response.predictions
+            const cantidad = predicts.length;
               if(cantidad > 0) {
-                if(predicts[0].confidence > 0.85) {
+                if(predicts[0].confidence > 0.8) {
                   this.result = 'Aguacate detectado';
                 }else{
                   this.result = 'No se detectaron aguacates'
@@ -86,7 +90,7 @@ export class ImageSelectorComponent  implements OnInit {
               }
           } else{
             this.result = 'No se detectaron aguacates'
-          }
+          }*/
           this.isLoaded = true
           loading.dismiss();
         },
